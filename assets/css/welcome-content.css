@@ -32,8 +32,28 @@
   white-space: nowrap;
   border-right: 3px solid #006170;
   width: 41ch;
-  animation: typing 7s steps(52, end), blink .5s infinite step-end alternate;
+  animation: typing 7s steps(50, end), blink .5s infinite step-end alternate;
   overflow: hidden;
+}
+
+@media screen and (width <= 720px) {
+  .banner__title {
+    font-size: 40px;
+  }
+
+  .banner__subtitle {
+    font-size: 20px;
+  }
+}
+
+@media screen and (width <= 500px) {
+  .banner__title {
+    font-size: 30px;
+  }
+
+  .banner__subtitle {
+    font-size: 15px;
+  }
 }
 
 @keyframes typing {
