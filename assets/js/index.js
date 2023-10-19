@@ -25,3 +25,8 @@ addEventListener('scroll', () => {
   }
 })
 
+const testimonials = document.querySelectorAll('.testimonials__element')
+
+testimonials.forEach((testi) => {
+  testi.firstElementChild.style.height = `${testi.getBoundingClientRect().height + 13}px`
+})
