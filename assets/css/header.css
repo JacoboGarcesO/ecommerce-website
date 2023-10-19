@@ -25,6 +25,10 @@
 .header__brand img {
   width: 2.75rem;
   height: 2.75rem;
+  background-color: black;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  padding: 10px;
 }
 
 .header__brand h1 {
