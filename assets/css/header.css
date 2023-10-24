@@ -25,7 +25,7 @@
 .header__brand img {
   width: 2.75rem;
   height: 2.75rem;
-  background-color: black;
+  background-color: #006170;
   border-radius: 50%;
   border: 1px solid #FFF;
   padding: 10px;
@@ -71,6 +71,7 @@
 }
 
 .header__icon {
+  cursor: pointer;
   color: #FFF;
   display: none;
 }
