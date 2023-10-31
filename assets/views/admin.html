@@ -43,9 +43,45 @@
       </ul>
     </nav>
   </header>
-  <main class="welcome-content">
-    
+  <main class="welcome-content admin-main">
+    <section class="admin__container">
+      <form id="product-form" class="admin__form">
+        <h2>Crear producto</h2>
+        <fieldset class="admin__form-section">
+          <div class="admin__input">
+            <label for="name">Nombre: </label>
+            <input id="name" type="text" required name="name" placeholder="Ingresa un nombre...">
+          </div>
+
+          <div class="admin__input">
+            <label for="price">Precio: </label>
+            <input id="price" type="number" required name="price" placeholder="Ingresa un precio...">
+          </div>
+        </fieldset>
+        <fieldset class="admin__form-section admin__form-section--row">
+          <div class="admin__input">
+            <label for="description">Descripción: </label>
+            <textarea name="description" id="description" cols="30" rows="10" required placeholder="Ingresa una descripción..."></textarea>
+          </div>
+        </fieldset>
+        <button class="admin__button" type="submit">Crear</button>
+      </form>
+      <table class="admin__table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="table-content">
+  
+        </tbody>
+      </table>
+    </section>
   </main>
   <script src="../js/admin.js"></script>
+  <script src="../js/index.js"></script>
 </body>
 </html>
