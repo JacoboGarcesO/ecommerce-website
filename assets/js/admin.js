@@ -87,7 +87,7 @@ const addButtonsListener = () => {
       alert('Se va a eliminar el producto: ' + id)
       const newProducts = products.filter(product => product.id !== parseInt(id)) // Estamos exluyendo el producto que se quiere eliminar
       localStorage.setItem('PRODUCTS', JSON.stringify(newProducts))
-      event.target.parentNode.parentNode.remove()
+      event.target.parentElement.parentElement.remove()
     })
   })
 
