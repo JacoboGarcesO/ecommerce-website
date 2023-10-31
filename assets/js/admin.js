@@ -27,18 +27,36 @@ form.addEventListener('submit', (event) => {
   event.preventDefault()
   products = JSON.parse(localStorage.getItem('PRODUCTS')) || []
 
-  const product = {
-    id: products[products.length - 1].id + 1 || 0 + 1,
-    name: event.target.elements.name.value,
-    price: event.target.elements.price.value,
-    description: event.target.elements.description.value
+  const isUpdating = JSON.parse(form.getAttribute('updating'))
+
+  if (isUpdating) {
+    const id = parseInt(localStorage.getItem('CURRENT_ID'))
+    const product = {
+      id,
+      name: event.target.elements.name.value,
+      price: event.target.elements.price.value,
+      description: event.target.elements.description.value
+    }
+
+    const index = products.findIndex(product => product.id === id)
+    products[index] = product
+  } else {
+    const product = {
+      id: products[products.length - 1]?.id + 1 || 0 + 1,
+      name: event.target.elements.name.value,
+      price: event.target.elements.price.value,
+      description: event.target.elements.description.value
+    }
+  
+    products.push(product)
   }
-
-  products.push(product)
-
+  
   localStorage.setItem('PRODUCTS', JSON.stringify(products))
-
   showProducts(products)
+  form.setAttribute('updating', false)
+
+  document.getElementById('form-title').innerText = 'Crear producto'
+  document.getElementById('submit-button').innerText = 'Crear'
   addButtonsListener()
   event.target.reset()
 })
@@ -94,7 +112,16 @@ const addButtonsListener = () => {
   document.querySelectorAll('.button--edit').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.getAttribute('data-id')
-      console.log(id)
+      localStorage.setItem('CURRENT_ID', id)
+      const product = products.find(product => product.id === parseInt(id))
+      document.getElementById('description').value = product.description
+      document.getElementById('name').value = product.name
+      document.getElementById('price').value = product.price
+
+      form.setAttribute('updating', true)
+
+      document.getElementById('form-title').innerText = 'Actualizar producto'
+      document.getElementById('submit-button').innerText = 'Actualizar'
     })
   })
 }
