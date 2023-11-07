@@ -47,6 +47,7 @@
 }
 
 .header__link {
+  position: relative;
   text-decoration: none;
   color: #FFF;
   font-weight: 700;
