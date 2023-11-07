@@ -5,6 +5,7 @@
 .admin__container {
   max-width: 1110px;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .admin__table {
@@ -46,6 +47,7 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  align-items: center;
 }
 
 .admin__form {
@@ -72,6 +74,16 @@
   gap: 10px;
   border: none;
   outline: none;
+}
+
+@media screen and (width < 480px) {
+  .admin__form-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .admin__form, .admin__table-wrapper {
+    margin: 10px;
+  }
 }
 
 .admin__form-section--row {
@@ -102,4 +114,10 @@
   padding: 10px 15px;
   cursor: pointer;
   color: #FFF;
+}
+
+@media screen and (width < 530px) {
+  .admin__table-wrapper {
+    overflow-x: scroll;
+  }
 }

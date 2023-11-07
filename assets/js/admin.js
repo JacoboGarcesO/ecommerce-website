@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const form = document.getElementById('product-form')
 
-form.addEventListener('submit', (event) => {
+form && form.addEventListener('submit', (event) => {
   event.preventDefault()
   products = JSON.parse(localStorage.getItem('PRODUCTS')) || []
 
@@ -63,6 +63,8 @@ form.addEventListener('submit', (event) => {
 
 
 const showProducts = (products) => {
+  if (!table) return
+
   table.innerHTML = products.map(product => (`
     <tr>
       <td>${product.name}</td>
